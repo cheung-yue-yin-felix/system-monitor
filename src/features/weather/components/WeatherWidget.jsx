@@ -13,8 +13,49 @@ export default function WeatherWidget() {
 
   const { weather, loading, error } = useWeather(language, district, tempStation);
 
-  if (loading) return <p>Loading weather...</p>;
-  if (error) return <p style={{ color: 'red' }}>Error: {error}</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          '--dpr': dpr,
+          width: 'calc(300px / var(--dpr))',
+          height: 'calc(300px / var(--dpr))',
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(12px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.25)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+          borderRadius: '18px',
+          textAlign: 'center',
+          verticalAlign: 'middle',
+          color: 'white',
+        }}
+      >
+        Loading Weather...
+      </div>
+    );
+
+  if (error)
+    return (
+      <div
+        style={{
+          '--dpr': dpr,
+          width: 'calc(300px / var(--dpr))',
+          height: 'calc(300px / var(--dpr))',
+          background: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(12px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.25)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+          borderRadius: '18px',
+          textAlign: 'center',
+          verticalAlign: 'middle',
+          color: 'red',
+        }}
+      >
+        Error: {error}
+      </div>
+    )
 
   const iconUrl = weather.icon != null ? `./weather_icons/pic${weather.icon}.png` : null;
 
@@ -32,7 +73,7 @@ export default function WeatherWidget() {
         borderRadius: '18px',
         fontFamily: '"Tektur", sans-serif',
         color: 'white',
-        margin: '40px auto',
+        margin: '0 auto',
         display: 'grid',
         gridTemplateColumns: 'auto auto auto',
         gap: '0px',
@@ -58,9 +99,9 @@ export default function WeatherWidget() {
       >
         <img src={iconUrl} alt="current-weather-icon" className="current-weather-icon" />
       </div>
-      <div>{`${weather.rainfall.max} ${weather.rainfall.unit}`}</div>
-      <div>{`${weather.temperature.value}°${weather.temperature.unit}`}</div>
-      <div>{`${weather.humidity.value}%`}</div>
+      <div>{`${weather?.rainfall?.max} ${weather?.rainfall?.unit}`}</div>
+      <div>{`${weather?.temperature?.value}°${weather?.temperature?.unit}`}</div>
+      <div>{`${weather?.humidity?.value}%`}</div>
     </div>
   );
 }

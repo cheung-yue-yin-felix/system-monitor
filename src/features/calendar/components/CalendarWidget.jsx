@@ -13,7 +13,7 @@ export default function CurrentMonthCalendar() {
       style={{
         width: '300px',
         height: '300px',
-        margin: '40px auto',
+        margin: '0 auto',
         padding: '28px',
         borderRadius: '18px',
         background: 'rgba(255, 255, 255, 0.15)',

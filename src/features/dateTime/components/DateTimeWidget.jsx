@@ -19,7 +19,7 @@ const DateTimeWidget = () => {
         '--dpr': dpr,
         width: 'calc(300px / var(--dpr))',
         height: 'calc(300px / var(--dpr))',
-        margin: '40px auto',
+        margin: '0 auto',
         display: 'grid',
         gridTemplateColumns: 'auto auto',
         gap: '0px',

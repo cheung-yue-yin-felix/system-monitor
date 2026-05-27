@@ -8,19 +8,17 @@ body {
   background: #000;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  gap: 10px;
-}
-
-.flex-item {
-  list-style: none;
-}
-
 .current-weather-icon {
   width: 128px;
   height: 128px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  list-style: none;
+  gap: 10px;
 }

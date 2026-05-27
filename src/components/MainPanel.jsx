@@ -4,16 +4,16 @@ import { CalendarWidget } from '../features/calendar/index.jsx';
 
 export default function MainPanel() {
   return (
-    <ul className="flex-container">
-      <li className="flex-item">
+    <>
+      <li>
         <WeatherWidget />
       </li>
-      <li className="flex-item">
+      <li>
         <DateTimeWidget />
       </li>
-      <li className="flex-item">
+      <li>
         <CalendarWidget />
       </li>
-    </ul>
+    </>
   );
 }
