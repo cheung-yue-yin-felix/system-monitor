@@ -8,35 +8,6 @@
     />
     <link rel="icon" type="image/svg+xml" href="/system-monitor/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      async function readMeasures() {
-        try {
-          // Force Rainmeter to update the measures first
-          await RainmeterAPI.Bang('!UpdateMeasure MeasureCPU');
-          await RainmeterAPI.Bang('!UpdateMeasure MeasureRAM');
-
-          // Read the values (exactly as in the official example)
-          const cpu = await RainmeterAPI.ReadStringFromSection('MeasureCPU', 'Value', '0');
-          const ram = await RainmeterAPI.ReadStringFromSection('MeasureRAM', 'Value', '0');
-
-          document.getElementById('cpu').textContent = cpu;
-          document.getElementById('ram').textContent = parseInt(ram) > 1073741824
-            ? (parseInt(ram) / 1073741824).toFixed(1) + ' GB'
-            : ram;
-
-          console.log(`✅ CPU: ${cpu}% | RAM: ${ram}`);
-        } catch (e) {
-          console.error('Read error:', e);
-        }
-      }
-
-      // Run once DOM is ready + every second after that
-      document.addEventListener('DOMContentLoaded', () => {
-        console.log('🌐 Page loaded – RainmeterAPI ready');
-        readMeasures();                    // first read
-        setInterval(readMeasures, 1000);   // then every second
-      });
-    </script>
     <title>system-monitor</title>
     <script type="module" crossorigin src="/system-monitor/assets/index-CaeA3sta.js"></script>
     <link rel="stylesheet" crossorigin href="/system-monitor/assets/index-DbfEYIBY.css">
