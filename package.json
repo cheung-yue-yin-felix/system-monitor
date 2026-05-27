@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "date-fns": "^4.3.0",
@@ -21,6 +23,7 @@
     "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
