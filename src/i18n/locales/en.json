@@ -27,6 +27,10 @@
     "powerW": "Power",
     "usedMb": "Used",
     "availableMb": "Available",
+    "usedSpaceGb": "Used",
+    "freeSpaceGb": "Free Space",
+    "driveLetter": "Drive Letter",
+    "interface": "Interface",
     "downloadKbps": "\u2193",
     "uploadKbps": "\u2191"
   },

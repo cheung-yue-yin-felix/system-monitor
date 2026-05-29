@@ -1,8 +1,6 @@
-import { CpuCard, GpuCard } from '../features/systemMonitor';
-import { RamCard } from '../features/systemMonitor';
+import { CpuCard, GpuCard, RamCard, NetworkCard, DiskCard } from '../features/systemMonitor';
 import { useMetricsStream } from '../features/systemMonitor/hooks';
 import { useTranslation } from 'react-i18next';
-import NetworkCard from '../features/systemMonitor/components/NetworkCard.jsx';
 
 export default function SystemPanel() {
   const { t } = useTranslation();
@@ -26,6 +24,11 @@ export default function SystemPanel() {
               <li key={nic.name}>
                 <NetworkCard network={nic} />
               </li>
+            )
+          })}
+          {data.disk.map(disk => {
+            return (
+              <DiskCard disk={disk} key={disk.diskName}/>
             )
           })}
         </ul>

@@ -27,6 +27,10 @@
     "powerW": "功率",
     "usedMb": "已用",
     "availableMb": "可用",
+    "usedSpaceGb": "已用空间",
+    "freeSpaceGb": "可用空间",
+    "driveLetter": "磁盘代号",
+    "interface": "介面",
     "downloadKbps": "\u2193",
     "uploadKbps": "\u2191"
   },
