@@ -11,6 +11,6 @@
   },
   "systemMonitorApi": {
     "baseUrl": "http://localhost:5000",
-    "apiKey": "xxZUMtWB2qWbSoDRVk75Zz6dD1DMvfGo"
+    "apiKey": "paste-your-key-here"
   }
 }
