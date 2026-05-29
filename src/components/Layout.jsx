@@ -40,6 +40,9 @@ export default function Layout() {
         <Link to="/" style={navLinkStyle('/')}>
           {t('titles.main')}
         </Link>
+        <Link to="/system" style={navLinkStyle('/system')}>
+          {t('titles.system')}
+        </Link>
         <Link to="/settings" style={navLinkStyle('/settings')}>
           {t('titles.settings')}
         </Link>

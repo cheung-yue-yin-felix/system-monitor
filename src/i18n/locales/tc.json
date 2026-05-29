@@ -18,11 +18,22 @@
       "ccc": "（例：週一）",
       "cccc": "（例：星期一）",
       "ccccc": "（例：一）"
-    }
+    },
+    "clockMHz": "時脈頻率",
+    "usagePercent": "使用率",
+    "usage3DPercent": "3D 使用率",
+    "vramUsageMb": "已用 VRAM",
+    "temperatureC": "溫度",
+    "powerW": "功率",
+    "usedMb": "已使用",
+    "availableMb": "可用",
+    "downloadKbps": "\u2193",
+    "uploadKbps": "\u2191"
   },
   "titles": {
     "main": "主頁",
-    "settings": "設定"
+    "settings": "設定",
+    "system": "系統監視器"
   },
   "districts": {
     "CW": "中西區",

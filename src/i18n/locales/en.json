@@ -18,11 +18,22 @@
       "ccc": "(e.g. Mon)",
       "cccc": "(e.g. Monday)",
       "ccccc": "(e.g. M)"
-    }
+    },
+    "clockMHz": "Clock",
+    "usagePercent": "Usage",
+    "usage3DPercent": "3D Usage",
+    "vramUsageMb": "Used VRAM",
+    "temperatureC": "Temp",
+    "powerW": "Power",
+    "usedMb": "Used",
+    "availableMb": "Available",
+    "downloadKbps": "\u2193",
+    "uploadKbps": "\u2191"
   },
   "titles": {
     "main": "Home",
-    "settings": "Settings"
+    "settings": "Settings",
+    "system": "System Monitor"
   },
   "districts": {
     "CW": "Central & Western District",

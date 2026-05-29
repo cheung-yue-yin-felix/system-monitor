@@ -1,4 +1,4 @@
-import { WeatherCard } from '../features/weather';
+import { WeatherCard } from '../features/weather/index.jsx';
 import { useForecast } from '../features/weather/hooks';
 import { useSettings } from '../hooks/useSettings.js';
 import { parse } from 'date-fns'
