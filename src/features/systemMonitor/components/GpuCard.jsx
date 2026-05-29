@@ -45,7 +45,7 @@ export default function GpuCard({ gpu })  {
       <div>{t('labels.usage3DPercent')}</div>
       <div>{`${gpu.usage3DPercent}%`}</div>
       <div>{t('labels.vramUsageMb')}</div>
-      <div>{`${gpu.vramUsageMb}Mb`}</div>
+      <div>{`${gpu.vramUsageMb}MB`}</div>
       <div>{t('labels.temperatureC')}</div>
       <div>{`${gpu.temperatureC}°C`}</div>
       <div>FPS</div>

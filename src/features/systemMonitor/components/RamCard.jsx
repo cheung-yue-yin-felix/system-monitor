@@ -36,9 +36,9 @@ export default function RamCard({ ram })  {
       <div>{t('labels.usagePercent')}</div>
       <div>{`${ram.usagePercent}%`}</div>
       <div>{t('labels.usedMb')}</div>
-      <div>{`${ram.usedMb}Mb`}</div>
+      <div>{`${ram.usedMb}MB`}</div>
       <div>{t('labels.availableMb')}</div>
-      <div>{`${ram.availableMb}Mb`}</div>
+      <div>{`${ram.availableMb}MB`}</div>
     </div>
   )
 }
