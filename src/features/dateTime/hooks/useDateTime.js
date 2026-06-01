@@ -22,8 +22,7 @@ export const useDateTime = ({ language, dateFormat, timeFormat, weekDayFormat })
   const locale = localeMap[language];
 
   return {
-    weekday: format(date, weekDayFormat, { locale }),
-    year: format(date, 'yyyy', { locale }),
+    weekDayYear: format(date, `${weekDayFormat} yyyy`, { locale }),
     monthDate: format(date, dateFormat, { locale }),
     timeStr: format(date, timeFormat, { locale }),
     seconds: date.getSeconds(),

@@ -28,7 +28,7 @@ export default function WeatherCard({ date, iconUrl, minTemp, maxTemp, minHumid,
         color: 'white',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
+        gridTemplateColumns: 'auto max-content auto',
         gap: '0px',
         alignItems: 'center',
         position: 'relative',
@@ -39,7 +39,7 @@ export default function WeatherCard({ date, iconUrl, minTemp, maxTemp, minHumid,
     >
       <div
         style={{
-          gridColumn: '1 / 3',
+          gridColumn: '1 / 4',
           fontSize: '18px',
         }}
       >
@@ -47,14 +47,16 @@ export default function WeatherCard({ date, iconUrl, minTemp, maxTemp, minHumid,
       </div>
       <div
         style={{
-          gridColumn: '1 / 3',
+          gridColumn: '1 / 4',
         }}
       >
         <img src={iconUrl} alt="current-weather-icon" className="current-weather-icon" />
       </div>
       <div>{`${minTemp}°C`}</div>
-      <div>{`${minHumid}%`}</div>
+      <div>~</div>
       <div>{`${maxTemp}°C`}</div>
+      <div>{`${minHumid}%`}</div>
+      <div>~</div>
       <div>{`${maxHumid}%`}</div>
     </div>
   )
