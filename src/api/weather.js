@@ -1,5 +1,5 @@
 import createExternalApi from './external.js';
-import config from '../config.json';
+import { config } from '../configs/configs.js';
 
 const BASE_URL = config.weatherApi.baseUrl;
 const DEFAULT_HEADERS = config.weatherApi.defaultHeaders;

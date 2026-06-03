@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import config from '../../../config.json'
+import { config } from '../../../configs/configs.js'
 
 export function useMetricsStream() {
   const apiKey = config.systemMonitorApi.apiKey;
