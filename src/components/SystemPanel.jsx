@@ -17,18 +17,12 @@ export default function SystemPanel() {
       ) : (
         <ul className="main-grid">
           <li><CpuCard cpu={data.cpu} /></li>
-          <li><RamCard ram={data.memory} /></li>
           <li><GpuCard gpu={data.gpu} /></li>
-          {data.network.map(nic => {
+          <RamCard ram={data.ram} />
+          <NetworkCard networks={data.networks} />
+          {data.disks.map(disk => {
             return (
-              <li key={nic.name}>
-                <NetworkCard network={nic} />
-              </li>
-            )
-          })}
-          {data.disk.map(disk => {
-            return (
-              <DiskCard disk={disk} key={disk.diskName}/>
+              <DiskCard disk={disk} key={disk.name}/>
             )
           })}
         </ul>

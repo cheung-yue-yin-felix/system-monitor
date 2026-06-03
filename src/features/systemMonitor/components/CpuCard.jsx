@@ -19,7 +19,7 @@ export default function CpuCard({ cpu })  {
         color: 'white',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
+        gridTemplateColumns: '100px 150px',
         gap: '0px',
         alignItems: 'center',
         position: 'relative',
@@ -39,13 +39,13 @@ export default function CpuCard({ cpu })  {
         {cpu.name}
       </div>
       <div>{t('labels.clockMHz')}</div>
-      <div>{`${cpu.clockMHz}MHz`}</div>
+      <div>{cpu.clockSpeed}</div>
       <div>{t('labels.usagePercent')}</div>
-      <div>{`${cpu.usagePercent}%`}</div>
+      <div>{cpu.load}</div>
       <div>{t('labels.temperatureC')}</div>
-      <div>{`${cpu.temperatureC}°C`}</div>
+      <div>{cpu.temperature}</div>
       <div>{t('labels.powerW')}</div>
-      <div>{`${cpu.powerW}W`}</div>
+      <div>{cpu.power}</div>
     </div>
   )
 }

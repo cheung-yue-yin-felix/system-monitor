@@ -19,7 +19,7 @@ export default function GpuCard({ gpu })  {
         color: 'white',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
+        gridTemplateColumns: '100px 150px',
         gap: '0px',
         alignItems: 'center',
         position: 'relative',
@@ -39,17 +39,15 @@ export default function GpuCard({ gpu })  {
         {gpu.name}
       </div>
       <div>{t('labels.clockMHz')}</div>
-      <div>{`${gpu.clockMHz}MHz`}</div>
+      <div>{gpu.clockSpeed}</div>
       <div>{t('labels.usagePercent')}</div>
-      <div>{`${gpu.usagePercent}%`}</div>
-      <div>{t('labels.usage3DPercent')}</div>
-      <div>{`${gpu.usage3DPercent}%`}</div>
-      <div>{t('labels.vramUsageMb')}</div>
-      <div>{`${gpu.vramUsageMb}MB`}</div>
+      <div>{gpu.load}</div>
+      <div>{t('labels.videoRamSize')}</div>
+      <div>{gpu.videoRamSize}</div>
       <div>{t('labels.temperatureC')}</div>
-      <div>{`${gpu.temperatureC}°C`}</div>
-      <div>FPS</div>
-      <div>{gpu.fps}</div>
+      <div>{gpu.temperature}</div>
+      <div>{t('labels.powerW')}</div>
+      <div>{gpu.power}</div>
     </div>
   )
 }
