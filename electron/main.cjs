@@ -277,16 +277,23 @@ function createTray() {
   const { nativeImage } = require('electron');
   let trayIcon = null;
 
-  try {
-    const icoPath = path.join(__dirname, '..', 'public', 'tray-icon.ico');
-    if (fs.existsSync(icoPath)) {
-      trayIcon = nativeImage.createFromPath(icoPath);
+  const candidates = [
+    path.join(__dirname, '..', 'public', 'tray-icon.ico'),
+    path.join(__dirname, '..', 'dist', 'tray-icon.ico'),
+  ];
+
+  for (const icoPath of candidates) {
+    try {
+      if (fs.existsSync(icoPath)) {
+        trayIcon = nativeImage.createFromPath(icoPath);
+        if (!trayIcon.isEmpty()) break;
+      }
+    } catch {
+      trayIcon = null;
     }
-  } catch {
-    trayIcon = undefined;
   }
 
-  tray = new Tray(trayIcon);
+  tray = new Tray(trayIcon || nativeImage.createEmpty());
 
   const contextMenu = Menu.buildFromTemplate([
     {
@@ -346,12 +353,21 @@ ipcMain.on('close-current-window', (event) => {
 /* ───────────────────────── App Lifecycle ───────────────────────── */
 
 app.whenReady().then(async () => {
-  await startBackend();
+  try {
+    await startBackend();
+  } catch (err) {
+    console.error('[Electron] Backend startup failed, continuing without it:', err);
+  }
 
   try {
     createTray();
   } catch (err) {
     console.error('[Electron] Tray creation failed:', err);
+  }
+
+  // Always open a window on first launch so the user sees something
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow('main', 0);
   }
 
   app.on('activate', () => {
