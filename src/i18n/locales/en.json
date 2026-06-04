@@ -21,16 +21,10 @@
     },
     "clockMHz": "Clock",
     "usagePercent": "Usage",
-    "usage3DPercent": "3D Usage",
-    "vramUsageMb": "Used VRAM",
     "temperatureC": "Temp",
     "powerW": "Power",
-    "usedMb": "Used",
-    "availableMb": "Available",
-    "usedSpaceGb": "Used",
     "freeSpaceGb": "Free Space",
     "driveLetter": "Drive Letter",
-    "interface": "Interface",
     "downloadKbps": "\u2193",
     "uploadKbps": "\u2191",
     "videoRamSize": "VRAM",
@@ -43,9 +37,7 @@
     "type": "Type",
     "formFactor": "Form",
     "totalSpace": "Total Space",
-    "partitionName": "Partition",
     "macAddress": "MAC",
-    "dhcpServer": "DHCP",
     "ipAddresses": "IP",
     "ipSubnets": "Subnet",
     "defaultIpGateways": "Gateway",
@@ -104,5 +96,10 @@
     "LFS": "Lau Fau Shan",
     "SK": "Shek Kong",
     "YLP": "Yuen Long Park"
+  },
+  "messages": {
+    "waitingForData": "Loading data...",
+    "connectionError": "Cannot connect to backend API",
+    "generalError": "Error: "
   }
 }

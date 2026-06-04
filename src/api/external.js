@@ -32,7 +32,7 @@ export default function createExternalApi(baseURL, defaultHeaders = {}) {
       try {
         errorData = await response.json();
       } catch (e) {
-        console.error('Error creating api request', e);
+        console.error('ErrorMessage creating api request', e);
       }
 
       throw {

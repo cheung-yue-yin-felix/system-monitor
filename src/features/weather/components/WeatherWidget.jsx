@@ -1,6 +1,8 @@
 import { useSettings } from '../../../hooks/useSettings.js';
 import { useWeather } from '../hooks';
 import { useTranslation } from 'react-i18next';
+import Loading from '../../../components/Loading.jsx';
+import ErrorMessage from '../../../components/ErrorMessage.jsx';
 
 export default function WeatherWidget() {
   const dpr = window.devicePixelRatio;
@@ -13,73 +15,21 @@ export default function WeatherWidget() {
 
   const { weather, loading, error } = useWeather(language, district, tempStation);
 
-  if (loading)
-    return (
-      <div
-        style={{
-          '--dpr': dpr,
-          width: 'calc(300px / var(--dpr))',
-          height: 'calc(300px / var(--dpr))',
-          background: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(12px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(12px) saturate(180%)',
-          border: '1px solid rgba(255, 255, 255, 0.25)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-          borderRadius: '18px',
-          textAlign: 'center',
-          verticalAlign: 'middle',
-          color: 'white',
-        }}
-      >
-        Loading Weather...
-      </div>
-    );
+  if (loading) return <Loading />;
 
-  if (error)
-    return (
-      <div
-        style={{
-          '--dpr': dpr,
-          width: 'calc(300px / var(--dpr))',
-          height: 'calc(300px / var(--dpr))',
-          background: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(12px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(12px) saturate(180%)',
-          border: '1px solid rgba(255, 255, 255, 0.25)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-          borderRadius: '18px',
-          textAlign: 'center',
-          verticalAlign: 'middle',
-          color: 'red',
-        }}
-      >
-        Error: {error}
-      </div>
-    )
+  if (error) return <ErrorMessage error={error} />;
 
   const iconUrl = weather.icon != null ? `./weather_icons/pic${weather.icon}.png` : null;
 
   return (
     <div
+      className="card"
       style={{
         '--dpr': dpr,
-        width: 'calc(300px / var(--dpr))',
-        height: 'calc(300px / var(--dpr))',
-        background: 'rgba(255, 255, 255, 0.15)',
-        backdropFilter: 'blur(12px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(12px) saturate(180%)',
-        border: '1px solid rgba(255, 255, 255, 0.25)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-        borderRadius: '18px',
-        fontFamily: '"Tektur", sans-serif',
-        color: 'white',
-        margin: '0 auto',
         display: 'grid',
         gridTemplateColumns: 'auto auto auto',
         gap: '0px',
         alignItems: 'center',
-        position: 'relative',
-        padding: '18px 22px',
         textAlign: 'center',
         fontSize: '24px',
       }}

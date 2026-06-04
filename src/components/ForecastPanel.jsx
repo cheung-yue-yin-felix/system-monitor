@@ -2,15 +2,28 @@ import { WeatherCard } from '../features/weather/index.jsx';
 import { useForecast } from '../features/weather/hooks';
 import { useSettings } from '../hooks/useSettings.js';
 import { parse } from 'date-fns'
+import Loading from './Loading.jsx';
+import { t } from 'i18next';
+import ErrorMessage from './ErrorMessage.jsx';
 
 export default function ForecastPanel() {
   const settings = useSettings();
   const language = settings.language;
-
   const { weather, loading, error } = useForecast(language);
 
-  if (loading) return <li style={{ gridColumn: '1 / 4', color: 'white' }}>Loading forecast...</li>;
-  if (error) return <li style={{ gridColumn: '1 / 4', color: 'red' }}>Error: {error}</li>;
+  if (loading)
+    return (
+      <li className="grid-span-all">
+        <Loading />
+      </li>
+    );
+
+  if (error)
+    return (
+      <li className="grid-span-all">
+        <ErrorMessage error={error} />
+      </li>
+    );
 
   return (
     <>

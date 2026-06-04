@@ -14,31 +14,51 @@ export function useMetricsStream() {
   useEffect(() => {
     if (!url) return;
 
-    setStatus('connecting');
-    const es = new EventSource(url);
-    esRef.current = es;
+    let retryCount = 0;
+    const maxRetries = 10;
+    const baseDelay = 1000;
+    let timeoutId = null;
+    let es = null;
 
-    es.onopen = () => {
-      setStatus('open');
-      setError(null);
-    };
+    function connect() {
+      setStatus('connecting');
+      es = new EventSource(url);
+      esRef.current = es;
 
-    es.onmessage = (event) => {
-      try {
-        const payload = JSON.parse(event.data);
-        setData(payload);
-      } catch (e) {
-        console.error('Failed to parse SSE payload', e);
-      }
-    };
+      es.onopen = () => {
+        retryCount = 0;
+        setStatus('open');
+        setError(null);
+      };
 
-    es.onerror = () => {
-      setStatus('error');
-      setError(new Error('EventSource connection failed'));
-    };
+      es.onmessage = (event) => {
+        try {
+          const payload = JSON.parse(event.data);
+          setData(payload);
+        } catch (e) {
+          console.error('Failed to parse SSE payload', e);
+        }
+      };
+
+      es.onerror = () => {
+        es.close();
+
+        if (retryCount < maxRetries) {
+          const delay = baseDelay * Math.pow(1.5, retryCount);
+          retryCount++;
+          timeoutId = setTimeout(connect, delay);
+        } else {
+          setStatus('error');
+          setError(new Error('EventSource connection failed after max retries'));
+        }
+      };
+    }
+
+    connect();
 
     return () => {
-      es.close();
+      if (timeoutId) clearTimeout(timeoutId);
+      if (es) es.close();
       setStatus('closed');
     };
   }, [url]);

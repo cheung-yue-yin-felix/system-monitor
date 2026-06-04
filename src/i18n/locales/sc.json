@@ -21,16 +21,10 @@
     },
     "clockMHz": "时钟频率",
     "usagePercent": "使用率",
-    "usage3DPercent": "3D 使用率",
-    "vramUsageMb": "已用 VRAM",
     "temperatureC": "温度",
     "powerW": "功率",
-    "usedMb": "已用",
-    "availableMb": "可用",
-    "usedSpaceGb": "已用空间",
     "freeSpaceGb": "可用空间",
     "driveLetter": "磁盘代号",
-    "interface": "介面",
     "downloadKbps": "\u2193",
     "uploadKbps": "\u2191",
     "videoRamSize": "显存",
@@ -43,9 +37,7 @@
     "type": "类型",
     "formFactor": "规格",
     "totalSpace": "总空间",
-    "partitionName": "分区",
     "macAddress": "MAC地址",
-    "dhcpServer": "DHCP服务器",
     "ipAddresses": "IP地址",
     "ipSubnets": "子网",
     "defaultIpGateways": "网关",
@@ -104,5 +96,10 @@
     "LFS": "流浮山",
     "SK": "石岗",
     "YLP": "元朗公园"
+  },
+  "messages": {
+    "waitingForData": "正在加载数据...",
+    "connectionError": "无法连接到后端 API",
+    "generalError": "错误："
   }
 }

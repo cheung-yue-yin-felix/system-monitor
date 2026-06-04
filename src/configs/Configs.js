@@ -1,3 +1,5 @@
+const isElectron = typeof window !== 'undefined' && !!window.electronAPI;
+
 export const config = {
   weatherApi: {
     baseUrl: 'https://data.weather.gov.hk/weatherAPI/opendata',
@@ -9,8 +11,10 @@ export const config = {
       forecastWeather: 'fnd'
     }
   },
-  systemMonitorApi: {
-    baseUrl: import.meta.env.VITE_BACKEND_URL,
-    apiKey: import.meta.env.VITE_API_KEY,
-  }
-}
+  systemMonitorApi: isElectron
+    ? window.electronAPI.systemMonitorApi
+    : {
+        baseUrl: import.meta.env.VITE_BACKEND_URL,
+        apiKey: import.meta.env.VITE_API_KEY,
+      }
+};

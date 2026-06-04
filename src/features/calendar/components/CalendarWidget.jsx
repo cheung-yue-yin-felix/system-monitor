@@ -10,18 +10,11 @@ export default function CurrentMonthCalendar() {
 
   return (
     <div
+      className="card"
       style={{
         width: '300px',
         height: '300px',
-        margin: '0 auto',
         padding: '28px',
-        borderRadius: '18px',
-        background: 'rgba(255, 255, 255, 0.15)',
-        backdropFilter: 'blur(12px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(12px) saturate(180%)',
-        border: '1px solid rgba(255, 255, 255, 0.25)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
-        fontFamily: '"Tektur", sans-serif',
       }}
     >
       {/* Weekday Headers */}
